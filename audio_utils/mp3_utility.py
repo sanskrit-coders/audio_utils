@@ -185,3 +185,8 @@ def filename_from_title(title):
     title_fixed = title.strip().replace(" ", "_").replace(".mp3", "")
     return title_fixed + ".mp3"
 
+
+def normalize_all_in_place(file_paths):
+    for file_path in file_paths:
+        mp3_file = Mp3File(file_path)
+        mp3_file.save_normalized(normalized_file_path=file_path, overwrite=True)
