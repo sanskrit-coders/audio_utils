@@ -1,5 +1,5 @@
 import logging
-
+logging.getLogger("pydub.converter").setLevel(logging.WARNING)
 
 def normalize(sound):
     # logging.debug(sound.dBFS)

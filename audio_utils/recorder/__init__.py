@@ -65,17 +65,14 @@ class KeyPressTriggeredRecorder(object):
             frames_per_buffer=self.frames_per_buffer, pyaudio_obj=self._pa)
         logging.info("Recording: %s at %s", os.path.basename(fname), fname )
         logging.info("Record while you keep pressing: %s", self.trigger_key)
-        def keychek_loop():
+        while not self._recording_stopped:
             if self._key_pressed and not self._recording_started:
                 recording_file.start_recording()
                 self._recording_started = True
             elif not self._key_pressed and self._recording_started:
                 recording_file.stop_recording()
                 self._recording_stopped = True
-            if not self._recording_stopped:
-                self._task_scheduler.enter(delay=.1, priority=1, action=keychek_loop)
-                self._task_scheduler.run()
-        keychek_loop()
+            time.sleep(.1)
 
 
 class RecordingFile(object):
@@ -136,7 +133,7 @@ class RecordingFile(object):
         sound = AudioSegment.from_wav(self._fname_wav)
         from audio_utils import audio_segment
         sound = audio_segment.normalize(sound)
-        sound.export(self.fname, format="mp3")
+        sound.export(self.final_fname, format="mp3")
 
     def _prepare_file(self, fname, mode='wb'):
         import os
