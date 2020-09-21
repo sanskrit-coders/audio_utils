@@ -1,0 +1,6 @@
+pydub
+ffmpy
+eyed3
+mutagen
+pyaudio
+pynput
