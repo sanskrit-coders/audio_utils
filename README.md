@@ -13,9 +13,10 @@ Miscellaneous audio processing tools.
 
 
 ## Installation or upgrade:
-* `sudo pip install audio_utils -U`
-* `sudo pip install git+https://github.com/sanskrit-coders/audio_utils/@master -U`
-* [Web](https://pypi.python.org/pypi/audio_utils).
+- Install external packages listed in .github/workflows/pythonpackage.yml
+- `sudo pip install audio_utils -U`
+- `sudo pip install git+https://github.com/sanskrit-coders/audio_utils/@master -U`
+- [Web](https://pypi.python.org/pypi/audio_utils).
 
 
 # For contributors
