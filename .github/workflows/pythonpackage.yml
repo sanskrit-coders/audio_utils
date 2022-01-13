@@ -50,6 +50,7 @@ jobs:
         pytest
     - name: Upload package
       uses: pypa/gh-action-pypi-publish@master
+      if: ${{ github.event_name != 'pull_request'}}
       with:
         user: __token__
         skip_existing: true
