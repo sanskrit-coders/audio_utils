@@ -181,7 +181,7 @@ class Mp3File(object):
     self.file_path = new_filepath
 
   def title_from_filename(self):
-    return self.basename[:-4]
+    return self.basename[:-4].replace("_", " ")
 
   def speedup(self, speed_multiplier=1, out_file=None):
     # Not using pydub: pydub speedup is noticably worse than audacity or ffmpeg "change tempo" output - introduces weird effects in case of gamaka-s.
